@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventario</title>
+</head>
+<body>
+<div class="container">
+    <h1>Incentario de productods </h1>
+    <hr>
+
+    <h2>Buscar Producto por ID</h2>
+    <div class="search-box">
+        <form th:action="@{/product/list}" method="get">
+            <label for="id">ID del Producto:</label>
+            <input type="text" id="id" name="id" th:value="${param.id}" />
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
+
+    <div th:if="${productFound}" class="result">
+        <h3>Producto Encontrado:</h3>
+        <p>
+            <strong>ID:</strong> <span th:text="${productFound.productId}"></span> <br>
+            <strong>Nombre:</strong> <span th:text="${productFound.productName}"></span> <br>
+            <strong>Categoría:</strong> <span th:text="${productFound.category?.categoryName}"></span> <br>
+            <strong>Proveedor:</strong> <span th:text="${productFound.supplier?.companyName}"></span> <br>
+            <strong>Precio:</strong> <span th:text="${productFound.unitPrice}"></span>
+        </p>
+    </div>
+
+    <div th:if="${errorSearch}" class="error">
+        <p th:text="${errorSearch}"></p>
+    </div>
+
+    <hr>
+
+    <h2>Lista de Productos</h2>
+    <div th:if="${errorList}" class="error">
+        <p th:text="${errorList}"></p>
+    </div>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th>Proveedor</th>
+            <th>Precio Unitario</th>
+            <th>En Stock</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="prod : ${products}">
+            <td th:text="${prod.productId}"></td>
+            <td th:text="${prod.productName}"></td>
+            <td th:text="${prod.category?.categoryName}"></td>
+            <td th:text="${prod.supplier?.companyName}"></td>
+            <td th:text="${prod.unitPrice}"></td>
+            <td th:text="${prod.unitsInStock}"></td>
+        </tr>
+        <tr th:if="${products == null or #lists.isEmpty(products)}">
+            <td colspan="6" style="text-align: center;"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
