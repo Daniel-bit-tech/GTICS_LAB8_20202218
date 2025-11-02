@@ -24,8 +24,7 @@
             <strong>ID:</strong> <span th:text="${productFound.productId}"></span> <br>
             <strong>Nombre:</strong> <span th:text="${productFound.productName}"></span> <br>
             <strong>Categoría:</strong> <span th:text="${productFound.category?.categoryName}"></span> <br>
-            <strong>Proveedor:</strong> <span th:text="${productFound.supplier?.companyName}"></span> <br>
-            <strong>Precio:</strong> <span th:text="${productFound.unitPrice}"></span>
+
         </p>
     </div>
 
@@ -46,9 +45,7 @@
             <th>ID</th>
             <th>Nombre</th>
             <th>Categoría</th>
-            <th>Proveedor</th>
-            <th>Precio Unitario</th>
-            <th>En Stock</th>
+
         </tr>
         </thead>
         <tbody>
@@ -56,9 +53,6 @@
             <td th:text="${prod.productId}"></td>
             <td th:text="${prod.productName}"></td>
             <td th:text="${prod.category?.categoryName}"></td>
-            <td th:text="${prod.supplier?.companyName}"></td>
-            <td th:text="${prod.unitPrice}"></td>
-            <td th:text="${prod.unitsInStock}"></td>
         </tr>
         <tr th:if="${products == null or #lists.isEmpty(products)}">
             <td colspan="6" style="text-align: center;"></td>

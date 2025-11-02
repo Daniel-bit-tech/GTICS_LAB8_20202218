@@ -21,10 +21,6 @@ public class Category {
     @Lob
     private String description;
 
-    @Column(name = "Picture")
-    @Lob
-    @Basic(fetch = FetchType.LAZY)
-    private byte[] picture;
 
 
 }

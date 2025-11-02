@@ -14,14 +14,11 @@ public class Supplier {
     @Column(name = "SupplierID")
     private Integer supplierId;
 
-    @Column(name = "CompanyName")
-    private String companyName;
 
     @Column(name = "ContactName")
     private String contactName;
 
-    @Column(name = "ContactTitle")
-    private String contactTitle;
+
 
     @Column(name = "Address")
     private String address;
@@ -29,8 +26,7 @@ public class Supplier {
     @Column(name = "City")
     private String city;
 
-    @Column(name = "Region")
-    private String region;
+
 
     @Column(name = "PostalCode")
     private String postalCode;
@@ -41,12 +37,6 @@ public class Supplier {
     @Column(name = "Phone")
     private String phone;
 
-    @Column(name = "Fax")
-    private String fax;
-
-    @Column(name = "HomePage")
-    @Lob
-    private String homePage;
 
 
 }

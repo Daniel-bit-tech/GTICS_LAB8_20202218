@@ -27,23 +27,7 @@ public class Product {
     @JoinColumn(name = "CategoryID")
     private Category category;
 
-    @Column(name = "QuantityPerUnit")
-    private String quantityPerUnit;
 
-    @Column(name = "UnitPrice")
-    private BigDecimal unitPrice;
-
-    @Column(name = "UnitsInStock")
-    private Short unitsInStock;
-
-    @Column(name = "UnitsOnOrder")
-    private Short unitsOnOrder;
-
-    @Column(name = "ReorderLevel")
-    private Short reorderLevel;
-
-    @Column(name = "Discontinued")
-    private boolean discontinued;
 
 
 }
